@@ -1,0 +1,31 @@
+15
+1 2 5 6
+A sign reads "Beware of the Wumpus"
+2 1 7 9
+You hear water dripping from the ceiling.
+3 2 9 13
+You trip on some rocks and nearly fall over.
+4 3 11 8
+There are some shoes here. Too bad they're not your size.
+5 4 7 15
+Many stalactites are on the ceiling. You duck down to avoid them.
+6 5 1 14
+You find an empty lantern.
+7 6 2 14
+It's a little bit warmer in here.
+8 7 4 15
+There's a skeleton in here. Getting pretty spooky in here.
+9 8 12 13
+Some mice run across the ground and nearly trip you.
+10 9 3 12
+You find an old flip phone. Wonder how that got in here.
+11 10 4 8
+There's a slight draft in here.
+12 11 9 10
+You run into a cobweb.  There are no spiders here fortunately
+13 12 3 9
+The ground here is rugged, making it hard to walk.
+14 13 7 6
+You see a vague fossil of a fish. Who knows how that got here?
+15 14 5 8
+There's an empty can of Monster in here.
