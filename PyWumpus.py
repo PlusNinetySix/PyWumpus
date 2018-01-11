@@ -1,36 +1,52 @@
 import random
-import rooms
+#import rooms
 
+arrow = 3
 
 with open("rooms.txt", "r") as ins:
     array = []
     for line in ins:
         array.append(line)
-        room0 = line.split(", ", 1)
-        #print(room0)
+        r = line.split(" ")
+        #print(r[0])
 
-
+#Sets the variables for the rooms.
 def roomvar():
-    for i in range(2):
-        pass
+    wroom = random.randint(0,14)
+    proom1 = random.randint(0,14)
+    proom2 = random.randint(0,14)
+    sroom1 = random.randint(0,14)
+    sroom2 = random.randint(0,14)
 
+#This function is run whenever the user chooses to move.
 def move():
-    pass
+    m = int(input('Which room do you want to go to?\n'))
+    print("t")
 
-def shoot(arrow):
-    arrow -= 1 #do global
-    print('You now have ' + str(arrow) + ' arrow(s) left.')
+#This function is run whenever the user chooses to shoot.
+def shoot():
+    try:
+        s = int(input('Into which room?\n'))
+        global arrow
+        arrow -= 1
+        print('You now have ' + str(arrow) + ' arrow(s) left.')
+        if arrow <= 0:
+            print('You have run out of arrows. Game over!')
+            quit()
+    except ValueError:
+        print("Not a number. Please input a number.")
 
+#The function that allows the game to run.
 def main():
-    arrow = 3
+    global currentRoom
     currentRoom = 1
     print('Welcome to Hunt the Wumpus!\nYou are in room 1.\nYou have three arrows left.')
     while True:
         mors = input('What will you do? m for moving, s for shooting\nType exit to quit.\n')
-        if mors == 'm':
+        if mors == 'm' or mors == 'M':
             move()
-        elif mors == 's':
-            shoot(arrow)
+        elif mors == 's' or mors == 'S':
+            shoot()
         elif mors == 'exit':
             print('Goodbye!')
             break
