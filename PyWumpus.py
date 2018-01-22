@@ -1,22 +1,24 @@
 import random
-#import rooms
+from rooms import RoomInfo
 
 arrow = 3
 
 with open("rooms.txt", "r") as ins:
+    rooms = []
     array = []
     for line in ins:
         array.append(line)
         r = line.split(" ")
-        #print(r[0])
+#         print(r)
+        roomnum = r[0]
+        adj = r[1:]
+        desc = ins.readline
+        rooms.append(RoomInfo(roomnum, adj, desc))
+        
 
 #Sets the variables for the rooms.
-def roomvar():
-    wroom = random.randint(0,14)
-    proom1 = random.randint(0,14)
-    proom2 = random.randint(0,14)
-    sroom1 = random.randint(0,14)
-    sroom2 = random.randint(0,14)
+def roomvar(rooms, spider, pit):
+    hazards = random.sample(rooms[1:], k=spider+pit+3)
 
 #This function is run whenever the user chooses to move.
 def move():
@@ -33,9 +35,9 @@ def shoot():
         global arrow
         arrow -= 1
         print('You now have ' + str(arrow) + ' arrow(s) left.')
-        if arrow <= 0:
-            print('You have run out of arrows. Game over!')
-            quit()
+#         if arrow <= 0:
+#             print('You have run out of arrows. Game over!')
+#             quit()
     except ValueError:
         print("Not a number. Please input a number.")
 
@@ -56,4 +58,4 @@ def main():
         else:
             print('Invalid syntax. Please Try again.')
 
-main()
+#main()
