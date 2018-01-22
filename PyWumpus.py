@@ -20,8 +20,11 @@ def roomvar():
 
 #This function is run whenever the user chooses to move.
 def move():
-    m = int(input('Which room do you want to go to?\n'))
-    print("t")
+    try:
+        m = int(input('Which room do you want to go to?\n'))
+        print("t")
+    except ValueError:
+        print("Not a number. Please input a number.")
 
 #This function is run whenever the user chooses to shoot.
 def shoot():
