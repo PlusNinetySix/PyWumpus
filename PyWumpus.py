@@ -6,14 +6,15 @@ arrow = 3
 with open("rooms.txt", "r") as ins:
     rooms = []
     array = []
+    ins.readline()
     for line in ins:
         array.append(line)
         r = line.split(" ")
 #         print(r)
         roomnum = r[0]
-        adj = r[1:]
-        desc = ins.readline
-        rooms.append(RoomInfo(roomnum, adj, desc))
+        adj = [int(x) for x in r[1:]]
+        desc = ins.readline()
+        rooms.append(RoomInfo(roomnum, adj.copy(), desc))
         
 
 #Sets the variables for the rooms.
@@ -22,22 +23,33 @@ def roomvar(rooms, spider, pit):
 
 #This function is run whenever the user chooses to move.
 def move():
+    global currentRoom
     try:
         m = int(input('Which room do you want to go to?\n'))
-        print("t")
+        #print(rooms[currentRoom-1].adj)
+        if rooms[currentRoom-1].isAdj(m):
+            currentRoom = m
+            #print('You can go into rooms {0}, {1}, and {2}'.format(rooms[0]))
+            print('You are in room {0}'.format(currentRoom))
+            print(rooms[currentRoom-1].getDesc())
+        else:
+            print('Room inaccessible. Please try again.')
     except ValueError:
         print("Not a number. Please input a number.")
 
 #This function is run whenever the user chooses to shoot.
 def shoot():
+    global currentRoom
     try:
         s = int(input('Into which room?\n'))
+        if rooms[currentRoom-1].isAdj(s):
+            currentRoom = s
+            print('You have shot into room {0}'.format(currentRoom))
         global arrow
         arrow -= 1
-        print('You now have ' + str(arrow) + ' arrow(s) left.')
-#         if arrow <= 0:
-#             print('You have run out of arrows. Game over!')
-#             quit()
+        print('You now have {0} arrow(s) left.'.format(arrow))
+        if arrow <= 0:
+            print('You have run out of arrows. You will need to find a room with arrows in it.')
     except ValueError:
         print("Not a number. Please input a number.")
 
@@ -58,4 +70,4 @@ def main():
         else:
             print('Invalid syntax. Please Try again.')
 
-#main()
+main()
