@@ -44,15 +44,15 @@ def move():
             print('You can go into rooms {0}, {1}, and {2}'.format(adj[0], adj[1], adj[2]))
             print('You are in room {0}'.format(currentRoom))
             print(rooms[currentRoom-1].getDesc())
-#             if m==rooms[currentRoom-1].hasWumpus():
-#                 print('You died from the Wumpus. Game over!')
-#                 quit()
-#             if rooms[currentRoom-1].arrowRoom():
-#                 if arrow == 3:
-#                     print('You have found some arrows, but you cannot hold anymore. You ignore them.')
-#                 else:
-#                     print('You found some arrows! You now have 3 arrows.')
-#                     arrow = 3
+            if m==rooms[currentRoom-1].hasWumpus():
+                print('You died from the Wumpus. Game over!')
+                quit()
+            if rooms[currentRoom-1].arrowRoom():
+                if arrow == 3:
+                    print('You have found some arrows, but you cannot hold anymore. You ignore them.')
+                else:
+                    print('You found some arrows! You now have 3 arrows.')
+                    arrow = 3
         else:
             print('Room inaccessible. Please try again.')
     except ValueError:
