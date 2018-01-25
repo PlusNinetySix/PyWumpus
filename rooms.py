@@ -35,6 +35,9 @@ class RoomInfo(object):
     def isAdj(self, roomnum):
         return roomnum in self.adj
     
+    def getAdj(self):
+        return self.adj
+    
     def getDesc(self):
         return self.desc
     
